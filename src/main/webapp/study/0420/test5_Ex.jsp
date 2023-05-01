@@ -18,11 +18,20 @@
     'use strict';
     
     function fCheck() {
-    	let su1 = document.getElementById("su1").value;
-    	let su2 = document.getElementById("su2").value;
-    	let su3 = document.getElementById("su3").value;
-    	let su4 = document.getElementById("su4").value;
-    	let su5 = document.getElementById("su5").value;
+    	
+    	const regEx = /[0-9]/gm;
+    	
+    	let su1 = document.getElementById("su1").value.trim();
+    	let su2 = document.getElementById("su2").value.trim();
+    	let su3 = document.getElementById("su3").value.trim();
+    	let su4 = document.getElementById("su4").value.trim();
+    	let su5 = document.getElementById("su5").value.trim();
+    	let strsu = su1 + su2 + su3 + su4 + su5;
+    	
+    	if(su1 == "" || su2 == "" || su3 == "" || su4 == "" || su5 == "" || !regEx.test(strsu)) {
+    		alert("숫자를 포함하고있지 않습니다.");
+    		return false;
+    	}
     	
     	if(isNaN(su1) || isNaN(su2) || isNaN(su3) || isNaN(su4) || isNaN(su5)) {
     		alert("다섯개의 숫자만 입력하셔야 합니다.");

@@ -11,26 +11,26 @@
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
   <style>
     th {
-    	background-color: #ccc;
-    	text-align:center;
+      background-color: #ccc;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 <p><br/></p>
 <div class="container">
-  <form name="myform" method="post" action="">
+  <form name="myform" method="post" action="test9Ok.jsp">
 	  <table class="table table-bordered">
 	    <tr>
 	      <td colspan="2" class="text-center"><h2>로그인</h2></td>
 	    </tr>
 	    <tr>
 	      <th>아이디</th>
-	      <td><input type="text" name="mid" class="form-control" autofocus required/></td>
+	      <td><input type="text" name="mid" autofocus class="form-control"/></td>
 	    </tr>
 	    <tr>
 	      <th>비밀번호</th>
-	      <td><input type="password" name="pwd" class="form-control" autofocus required/></td>
+	      <td><input type="password" name="pwd" class="form-control"/></td>
 	    </tr>
 	    <tr>
 	      <td colspan="2" class="text-center">

@@ -19,12 +19,12 @@
     function inputBox() {
     	idx++;
     	newText = '<div id="proTxt'+idx+'">';
-    	newText += '<table class="table" width="100%">';
+    	newText += '<table class="table table-striped" width="100%">';
     	newText += '<tr>';
-    	newText += '<td><input type="text" name="product" id="product'+idx+'" /></td>';
-    	newText += '<td><input type="number" name="price" id="price'+idx+'" /></td>';
-    	newText += '<td><input type="number" name="su" id="su'+idx+'" /></td>';
-    	newText += '<td><input type="button" value="삭제" onclick="deleteBox('+idx+')" class="btn btn-secondary" /></td>';
+    	newText += '<td>'+idx+'.<input type="text" name="product" id="product'+idx+'" /></td>';
+    	newText += '<td><input type="number" name="price" id="price'+idx+'" style="width:100px" /></td>';
+    	newText += '<td><input type="number" name="su" id="su'+idx+'" style="width:60px" /></td>';
+    	newText += '<td width="100px"><input type="button" value="삭제" onclick="deleteBox('+idx+')" class="btn btn-secondary" /></td>';
     	newText += '</tr>';
     	newText += '</table>';
     	newText += '</div>';
@@ -93,7 +93,7 @@
     </p>
     <p>상품분류 :
       <select name="part" id="part" class="form-control">
-        <option value="">상품을 선택하세요</opotion>
+        <option value="">상품을 선택하세요</option>
         <option selected>전자제품</option>
         <option>의류</option>
         <option>가구류</option>
@@ -107,17 +107,17 @@
       <input type="button" value="입력창모두제거" onclick="reloadCheck()" class="btn btn-danger"/>
     </p>
     <table class="table table-borderless">
-      <tr class="text-center">
-        <th>상품명</th><th>가격</th><th>수량</th><th>비고</th>
+      <tr class="text-center bg-info text-white ">
+        <th>상품명</th><th class="text-right">가격</th><th>수량</th><th style="width:100px">비고</th>
       </tr>
       <tr>
         <td colspan="4" class="text-center">
-          <table class="table">
+          <table class="table table-striped">
             <tr>
-              <td><input type="text" name="product" id="product0" value="냉장고" /></td>
-              <td><input type="number" name="price" id="price0" value="50000" /></td>
-              <td><input type="number" name="su" id="su0" value="1" /></td>
-              <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+              <td>0.<input type="text" name="product" id="product0" value="선풍기" /></td>
+              <td><input type="number" name="price" id="price0" value="60000" style="width:100px" /></td>
+              <td><input type="number" name="su" id="su0" value="2" style="width:60px" /></td>
+              <td width="100px"></td>
             </tr>
           </table>
           <div id="demo"></div>
