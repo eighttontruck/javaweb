@@ -23,6 +23,13 @@
     	let pageSize = document.getElementById("pageSize").value;
     	location.href = "${ctp}/GuestList.gu?pag=${pag}&pageSize="+pageSize;
     }
+    
+    function delCheck(idx) {
+    	
+    	let ans=confirm("현재 게시물을 삭제하시겠습니까?");
+    	if(ans) location.href="${ctp}/GuestDelete.gu?idx="+idx;
+    	
+    }
   </script>
 </head>
 <body>
@@ -64,10 +71,15 @@
       </td>
     </tr>
   </table>
-  <c:forEach var="vo" items="${vos}" varStatus="st">
+  <c:forEach var="vo" items="${vos}" varStatus="st"> 
 	  <table class="table table-borderless mb-0 mt-0">
 	    <tr>
-	      <td>번호 : ${vo.idx}</td>
+	      <td>
+	      	번호 : ${curScrStartNo}
+	      	<c:if test="${sAdmin=='adminOk'}">
+	      		<a href="javascript:delCheck(${vo.idx})" class="btn btn-danger btn-sm">삭제</a>
+	      	</c:if>
+	      </td>
 	      <td style="text-align:right;">방문IP : ${vo.hostIp}</td>
 	    </tr>
 	  </table>
@@ -97,6 +109,7 @@
 	      <td colspan="3" style="height:150px">${fn:replace(vo.content, newLine, '<br/>')}</td>
 	    </tr>
 	  </table>
+	  <c:set var="curScrStartNo" value="${curScrStartNo-1}"></c:set>
   </c:forEach>
   <br/>			<!-- 4페이지(1블록)에서 0블록으로 가게되면 현재페이지는 1페이지가 블록의 시작페이지가 된다. -->
   <!-- 첫페이지 / 이전블록 / 1(4) 2(5) 3 / 다음블록 / 마지막페이지 -->
