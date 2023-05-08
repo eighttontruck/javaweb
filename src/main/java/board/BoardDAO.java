@@ -23,8 +23,9 @@ public class BoardDAO {
 	public ArrayList<BoardVO> getBoardList(int startIndexNo, int pageSize) {
 		ArrayList<BoardVO> vos = new ArrayList<>();
 		try {
-			//sql = "select * from board order by idx desc limit ?,?";
-			sql="select *,timestampdiff(hour,wDate,now()) as hour_diff from board order by idx desc limit ?,?";
+			// sql = "select * from board order by idx desc limit ?,?";
+			sql = "select *,datediff(wDate, now()) as day_diff,timestampdiff(hour, wDate, now()) as hour_diff from"
+					+ " board order by idx desc limit ?,?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, startIndexNo);
 			pstmt.setInt(2, pageSize);
@@ -46,6 +47,7 @@ public class BoardDAO {
 				vo.setGood(rs.getInt("good"));
 				
 				vo.setHour_diff(rs.getInt("hour_diff"));
+				vo.setDay_diff(rs.getInt("day_diff"));
 				
 				vos.add(vo);
 			}
@@ -96,6 +98,63 @@ public class BoardDAO {
 			getConn.rsClose();
 		}
 		return totRecCnt;
+	}
+
+	// 게시글 1건 가져오기.
+	public BoardVO getBoardContent(int idx) {
+		BoardVO vo = new BoardVO();
+		try {
+			sql = "select * from board where idx = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			vo.setIdx(rs.getInt("idx"));
+			vo.setMid(rs.getString("mid"));
+			vo.setNickName(rs.getString("nickName"));
+			vo.setTitle(rs.getString("title"));
+			vo.setEmail(rs.getString("email"));
+			vo.setHomePage(rs.getString("homePage"));
+			vo.setContent(rs.getString("content"));
+			vo.setReadNum(rs.getInt("readNum"));
+			vo.setHostIp(rs.getString("hostIp"));
+			vo.setOpenSw(rs.getString("openSw"));
+			vo.setwDate(rs.getString("wDate"));
+			vo.setGood(rs.getInt("good"));
+		} catch (SQLException e) {
+			System.out.println("SQL 오류 : " + e.getMessage());
+		} finally {
+			getConn.rsClose();
+		}
+		return vo;
+	}
+
+	public void setReadNumUpdate(int idx) {
+		try {
+			sql = "update board set readNum = readNum + 1 where idx = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("SQL 오류 : " + e.getMessage());
+		} finally {
+			getConn.pstmtClose();
+		}
+	}
+
+	// 좋아요 1 증가시키기
+	public void setGoodUpdate(int idx) {
+		try {
+			sql = "update board set good = good + 1 where idx = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("SQL 오류 : " + e.getMessage());
+		} finally {
+			getConn.pstmtClose();
+		}
 	}
 	
 }

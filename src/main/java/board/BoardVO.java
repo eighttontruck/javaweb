@@ -14,6 +14,7 @@ public class BoardVO {
 	private String wDate;
 	private int good;
 	
+	private int day_diff;
 	private int hour_diff;
 	
 	public int getIdx() {
@@ -94,11 +95,17 @@ public class BoardVO {
 	public void setHour_diff(int hour_diff) {
 		this.hour_diff = hour_diff;
 	}
-	
+	public int getDay_diff() {
+		return day_diff;
+	}
+	public void setDay_diff(int day_diff) {
+		this.day_diff = day_diff;
+	}
 	@Override
 	public String toString() {
 		return "BoardVO [idx=" + idx + ", mid=" + mid + ", nickName=" + nickName + ", title=" + title + ", email=" + email
 				+ ", homePage=" + homePage + ", content=" + content + ", readNum=" + readNum + ", hostIp=" + hostIp
-				+ ", openSw=" + openSw + ", wDate=" + wDate + ", good=" + good + "]";
+				+ ", openSw=" + openSw + ", wDate=" + wDate + ", good=" + good + ", day_diff=" + day_diff + ", hour_diff="
+				+ hour_diff + "]";
 	}
 }
