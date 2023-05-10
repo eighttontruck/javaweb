@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import study2.ajax2.UserDeleteCommond;
+import study2.ajax2.UserInputCommond;
+import study2.ajax2.UserListCommond;
+import study2.ajax2.UserSearchCommond;
+import study2.ajax2.UserUpdateCommond;
 import study2.password.PassOk1Commond;
 import study2.password.PassOk2Commond;
 import study2.uuid.UuidCommond;
@@ -60,6 +65,16 @@ public class StudyController extends HttpServlet {
 		}
 		else if(com.equals("/UserDelete")){
 			command = new UserDeleteCommond();
+			command.execute(request, response);
+			return;
+		}
+		else if(com.equals("/UserSearch")){
+			command = new UserSearchCommond();
+			command.execute(request, response);
+			return;
+		}
+		else if(com.equals("/UserUpdate")){
+			command = new UserUpdateCommond();
 			command.execute(request, response);
 			return;
 		}
