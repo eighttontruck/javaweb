@@ -30,7 +30,7 @@
 	        <a class="nav-link" href="${pageContext.request.contextPath}/BoardList.bo">Board</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">PDS</a>
+	        <a class="nav-link" href="${ctp}/PdsList.pds">PDS</a>
 	      </li>
 	      <li>
 				  <div class="dropdown">
@@ -55,7 +55,7 @@
 				      <a class="dropdown-item" href="${ctp}/FileUpLoad1.st">파일업로드연습1</a>
 				      <a class="dropdown-item" href="${ctp}/FileUpLoad2.st">파일업로드연습2</a>
 				      <a class="dropdown-item" href="${ctp}/FileUpLoad3.st">파일업로드연습3</a>
-				      <a class="dropdown-item" href="${ctp}/FileUpLoad4.st">파일업로드연습3</a>
+				      <a class="dropdown-item" href="${ctp}/FileUpLoad4.st">파일업로드연습4</a>
 				      <a class="dropdown-item" href="#">로그인연습3</a>
 				      <a class="dropdown-item" href="#">Link 3</a>
 				    </div>

@@ -18,6 +18,8 @@ import study2.ajax2.UserUpdateCommond;
 import study2.password.PassOk1Commond;
 import study2.password.PassOk2Commond;
 import study2.pdstest.DownLoadCommond;
+import study2.pdstest.FileDeleteCommond;
+import study2.pdstest.FileDownLoadCommond;
 import study2.pdstest.FileUpLoad1OkCommond;
 import study2.pdstest.FileUpLoad2OkCommond;
 import study2.pdstest.FileUpLoad3OkCommond;
