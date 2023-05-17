@@ -13,3 +13,5 @@ desc user;
 insert into user values (default, 'admin', '관리자', 35, '서울');
 insert into user values (default, 'hkd1234', '홍길동', 22, '청주');
 insert into user values (default, 'kms1234', '김말수', 29, '제주');
+
+select * from user;
